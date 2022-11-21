@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ful_direction_chatbot/screens/chatscreen.dart';
 
 class Onboarding extends StatelessWidget {
-  const Onboarding({super.key, required this.onTap});
-  final VoidCallback onTap;
+  const Onboarding({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +97,11 @@ class Onboarding extends StatelessWidget {
                     ),
                     const Spacer(),
                     TextButton(
-                      onPressed: onTap,
+                      onPressed: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                          builder: (ctx) => const ChatScreen(),
+                        ));
+                      },
                       style: ButtonStyle(
                         minimumSize: MaterialStateProperty.resolveWith(
                           (states) => const Size(double.infinity, 60),

@@ -30,23 +30,8 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       home: MultiProvider(
-        providers: [ChangeNotifierProvider(create: (_) => ChatProvider())],
-        child: PageView(
-          controller: _controller,
-          // physics: const NeverScrollableScrollPhysics(),
-          children: [
-            Onboarding(
-              onTap: () {
-                _controller.nextPage(
-                  duration: const Duration(milliseconds: 150),
-                  curve: Curves.easeIn,
-                );
-              },
-            ),
-            const ChatScreen(),
-          ],
-        ),
-      ),
+          providers: [ChangeNotifierProvider(create: (_) => ChatProvider())],
+          child: const Onboarding()),
     );
   }
 }
