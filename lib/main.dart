@@ -19,8 +19,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final PageController _controller = PageController();
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
