@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ful_direction_chatbot/provider/chat_provider.dart';
 import 'package:ful_direction_chatbot/repository/base.dart';
-import 'package:ful_direction_chatbot/screens/chatscreen.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/onboarding.dart';
@@ -24,14 +23,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FUL Direction',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ChatProvider())],
+      child: MaterialApp(
+        title: 'FUL Direction',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Onboarding(),
       ),
-      home: MultiProvider(
-          providers: [ChangeNotifierProvider(create: (_) => ChatProvider())],
-          child: const Onboarding()),
     );
   }
 }
